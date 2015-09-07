@@ -1,0 +1,67 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexming.css);
+
+body {
+    min-width: 320px;
+    padding-bottom: 80px;
+    font-family: 'cwTeXMing', serif;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+.container .page-header h1 {
+    font-size: 56px;
+    font-weight: bold;
+}
+
+.jumbotron#quote {
+    position: relative;
+    background-color: transparent;
+}
+
+.jumbotron#quote:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    background: url("../img/bg.png");
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="1.15" intercept="-0.07499999999999996" /><feFuncG type="linear" slope="1.15" intercept="-0.07499999999999996" /><feFuncB type="linear" slope="1.15" intercept="-0.07499999999999996" /></feComponentTransfer></filter></svg>#filter');
+    -webkit-filter: contrast(115%);
+    filter: contrast(115%);
+}
+
+.jumbotron#quote button {
+    display: block;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.jumbotron img {
+    position: absolute;
+    -webkit-transform: rotateX(42deg) rotateY(24deg) rotateZ(-50deg);
+    transform: rotateX(42deg) rotateY(24deg) rotateZ(-50deg);
+    top: -105px;
+    right: 0;
+    height: 200px;
+    width: auto;
+}
+
+.jumbotron blockquote {
+    text-align: justify;
+    color: rgba(0, 0, 0, 1);
+    border-left: 5px solid rgba(30, 30, 30, 0.6);
+}
+
+.jumbotron blockquote footer {
+    text-align: right;
+    font-size: 20px;
+}
+
