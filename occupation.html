@@ -1,0 +1,50 @@
+<div class="jumbotron" id="occupation" data-ng-controller="occupationCtrl as ctrl">
+    <img src="img/butterfly.svg" alt="蝶蝶">
+    <div class="container">
+        <div class="page-header">
+            <h1>留守篇</h1>
+        </div>
+        <div class="row" data-ng-repeat="question in ctrl.questions">
+            <div class="col-sm-2">
+                <h2>{{$index + 1}}.</h2>
+            </div>
+            <div class="col-sm-5">
+                <h2 data-ng-bind="question.text"></h2>
+            </div>
+            <div class="col-sm-2 vertical-horizontal-center">
+                <div class="onoffswitch">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoffswitch-{{$index}}" data-ng-model="question.ans" data-ng-change="ctrl.updatePoint(question)">
+                    <label class="onoffswitch-label" for="onoffswitch-{{$index}}">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3" data-ng-if="question.ans">
+                <h2 data-ng-class="question.point | posNegNumClassFilter">{{question.point | posNegNumFilter}} 分</h2>
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-5"></div>
+            <div class="col-sm-2">
+                <h2 style="text-align: right">小計：</h2>
+            </div>
+            <div class="col-sm-3">
+                <h2>
+                    {{ctrl.getPoint()}} 分
+                        <span id="indicator-wrapper">
+                            <span id="max-indicator" data-ng-if="ctrl.getPoint() == 187">MAX!</span>
+                        </span>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#/">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#/行動篇">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>

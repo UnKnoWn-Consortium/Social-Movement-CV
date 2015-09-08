@@ -17,12 +17,25 @@ body {
     font-weight: bold;
 }
 
-.jumbotron#quote {
+.jumbotron {
     position: relative;
     background-color: transparent;
+    text-align: center;
+    margin-bottom: 0;
 }
 
-.jumbotron#quote:after {
+.jumbotron .container {
+    background: rgba(255,255,255,0.8);
+    border-radius: 8px;
+    border: solid 1px rgba(0,0,0,0.5);
+    padding: 15px;
+}
+
+.jumbotron .container .page-header {
+    border-bottom-color: rgba(45, 45, 45, 1);
+}
+
+.jumbotron:after {
     content: "";
     display: block;
     position: absolute;
@@ -31,17 +44,39 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-size: cover;
-    background: url("../img/bg.png");
     filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="1.15" intercept="-0.07499999999999996" /><feFuncG type="linear" slope="1.15" intercept="-0.07499999999999996" /><feFuncB type="linear" slope="1.15" intercept="-0.07499999999999996" /></feComponentTransfer></filter></svg>#filter');
     -webkit-filter: contrast(115%);
     filter: contrast(115%);
 }
 
-.jumbotron#quote button {
-    display: block;
-    margin: 0 auto;
+.jumbotron#quote:after {
+    background: url("../img/bg1.png");
+    background-size: cover;
+}
+
+.jumbotron#occupation:after {
+    background: url("../img/bg2.jpg");
+    background-size: cover;
+}
+
+.jumbotron#occupation .container hr {
+    margin-bottom: 0;
+    border-top: 1px solid rgba(45, 45, 45, 1);
+}
+
+span#indicator-wrapper {
+    position: relative;
+}
+
+span#max-indicator {
+    position: absolute;
+    top: 10px;
+    left: -30px;
+    font-size: 22px;
     font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica,Arial, sans-serif;
+    color: red;
+    transform: rotate(-25deg);
 }
 
 .jumbotron img {
@@ -65,3 +100,98 @@ body {
     font-size: 20px;
 }
 
+.vertical-horizontal-center {
+    height: 63px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.positive {
+    color: green;
+}
+
+.negative {
+    color: red;
+}
+
+.onoffswitch {
+    position: relative;
+    width: 100px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #FFFFF;
+    border-radius: 0px;
+}
+
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 50px;
+    padding: 0;
+    line-height: 46px;
+    font-size: 24px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.onoffswitch-inner:before {
+    content: "有";
+    padding-right: 30px;
+    background-color: #34C240; color: #FFFFFF;
+}
+
+.onoffswitch-inner:after {
+    content: "無";
+    padding-right: 21px;
+    background-color: #EEEEEE; color: #808080;
+    text-align: right;
+}
+
+.onoffswitch-switch {
+    display: block;
+    width: 32px;
+    height: 50px;
+    margin: 0;
+    background: #C2C2C2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 72px;
+    transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0;
+}
+
+.onoffswitch label {
+    margin-bottom: 0;
+}
