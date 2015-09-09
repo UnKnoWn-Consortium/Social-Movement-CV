@@ -92,8 +92,14 @@ app.controller('occupationCtrl', ['userSvc', function(userSvc){
     this.updatePoint = function(question){
         userSvc.updatePoint('other', question);
     };
-}]).controller('totalCtrl', ['userSvc', function(userSvc){
-
+}]).controller('totalCtrl', ['$location', '$window', 'userSvc', function($location, $window, userSvc){
+    this.getPoint = function(){
+        return userSvc.getPoint();
+    };
+    this.reload = function(){
+        $location.path('/');
+        $window.location.reload();
+    }
 }]);
 
 app.factory('userSvc', [function(){
